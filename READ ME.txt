@@ -1,0 +1,19 @@
+Official Read Me document is located at: 
+
+http://phpublisher.net/?find=Read Me
+
+Upgrading direction:
+
+!!!!FIRST AND VERY IMPORTANT!!!!
+
+BACK UP YOUR CURRENT DATABASE 
+
+You never know when something might go wrong. After wards continue on.
+
+1 : Open up your PHPublisher in your browser.
+
+2 : Next locate: http://yoursite.com/install/upgrade/
+
+3 : There should be some upgrades file there, depending on the version of PHPublisher that you are running you may / may not need to run more than one. 
+--If you are running PHPublisher Release Candidate 1, run "from_RC1_to_RC2.php", after than run "from_1_0_0_to_1_1_0.php", and you are finished.
+--If you are running PHPublisher 1.0.0, run "from_1_0_0_to_1_1_0.php", and you are finished.

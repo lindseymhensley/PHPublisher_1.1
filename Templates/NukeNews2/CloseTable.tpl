@@ -1,0 +1,1 @@
+<br><br>$array[Table_Footer]</td></tr></table></td></tr></table>

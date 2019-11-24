@@ -1,0 +1,979 @@
+***************************************************************** 
+** 
+** PHPublisher: A Dynamic Content Publishing System 
+** ________________________________________________ 
+** 
+** Copyright (c) 2005 by Timothy Hensley 
+** http://PHPublisher.net 
+** 
+** This program is free software; you can redistribute it 
+** and/or modify it under the terms of the GNU General Public 
+** License as published by the Free Software Foundation; 
+** either version 2 of the License, or (at your option) any 
+** later version. 
+** 
+** This program is distributed in the hope that it will be 
+** useful, but WITHOUT ANY WARRANTY; without even the implied 
+** warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+** PURPOSE. See the GNU General Public License for more 
+** details. 
+** 
+***************************************************************** 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+
+This READ ME document is associated with PHPublisher version(s): 
+
+1.0.0rc1, 1.0.0rc2 
+
+if you are running a different version of PHPublisher please reference the READ ME document that came with it. The PHPublisher development team is not responsible for any loss of data, damage to server, or any complications caused as a result of reading the incorrect READ ME doc. We highly recommend you do not reference this document if the version(s) listed above do not match the version of PHPublisher you are running, as it may contain information, documentation, code examples that has become obsolete, and is no longer in use/used in PHPublisher development. 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+
+Thank you for downloading PHPublisher, I hope that in the future you will continue to use, and take part in the development of this new complex user friendly system. Below a tree is provided for the areas that are going to be covered in this document. 
+
+I. Dynamic Installation 
+--I. First Step 
+--II. Language 
+--III. MySQL Information 
+--IV. Admin Account 
+--V. Ready? 
+--VI. Let’s do this! 
+
+II. Manual Installation 
+--I. The config_info_MANUAL_INSTALL.php file 
+--II. The Manual_Install.sql file 
+--III. settings_row.sql 
+--IV. admin_account.sql 
+--V. Executing the SQL using phpMyAdmin 
+--VI. PHPublisher has been successfully installed! 
+
+III. Default Settings 
+--I. Site URL 
+--II. Site Launch 
+--III. Site Title 
+--IV. Site Slogan 
+--V. Site Description 
+--VI. Site Keywords 
+--VII. Admin Email 
+--VIII. Maximum characters to be used in signatures 
+--IX. Enable Secure Login? 
+--XI. Enable detailed logging? 
+--XII. Allow members to change the site theme? 
+--XIII. Enable Gzip? 
+--XIV. Allow Guest to Post? 
+--XV. Enable Emoticons? 
+--XVI. Enable Bbcode? 
+--XVII. Default Theme 
+--XVIII. Default Language 
+--XIX. Enable front page content? 
+--XX. Front page content 
+--XXI. Censor Words? 
+--XXII. Number of articles to appear on the front page 
+--XXIII. Number of articles to appear on each old article page 
+--XXIV. Number of polls to list to the public 
+--XXV. Cookie Path 
+--XXVI. Cookie Domain 
+--XXVII. Footers 
+--XXVIII. Enable Powered By images 
+--XXIX. Enable Suspect Filter? 
+
+IV. Backend Overview 
++I. Backend.php 
+--I. Lines 1-50 
+--II. MySQL Class 
+--III. Lines 150 - 195 
+--IV. User Class 
+--V. Table Class 
+--VI. Refreshing Site Content 
+--VII. GrabBlocks Function 
+--VIII. Banned Users 
++II. Required Files 
+--I. suspect_filter.php 
+--II. functions.php 
+--III. censors.php 
+--IV. emoticons.php 
+--V. bbcode.php 
+--VI. comments.php 
+--VII. pagecontent.php 
+--VIII. log.php 
+--IX.counter.php 
+--X. headers.php 
+--XI. footes.php 
+
+
+V. Admin Panel Overview 
++I. User Management 
+--I. Modify User 
+--II. User Groups 
+--III. Banned 
++II. Article Management 
+--I. Articles 
+--II. Topics 
++III. Feature Management 
+--I. Smilies 
+--II. Censors 
++IV. Content Management 
+--I. Polls 
+--II. Blocks 
+--III. Content 
+--IV. Modules 
+--V. Downloads 
+--VI. Web Links 
++V. Site Management 
+--I. Settings 
+--II. Logging 
++VI. Other Management 
++VII. Hot Links 
+--I. Requested WL's 
+--II. Requested DL's 
+--III. Post Article 
+--IV. Start Poll 
+--V. Create Blocks 
+
+VI. A special thanks goes out to... 
+
+VII. Thank you for choosing PHPublisher 
+
+
+with that said, let’s begin. 
+
+
+
+I. Dynamic Installation 
+
+Below is a list of what will be covered in this section: 
+
+--I. First Step 
+--II. Language 
+--III. MySQL Information 
+--IV. Admin Account 
+--V. Ready? 
+--VI. Let’s do this! 
+
+Introduction 
+
+Before we can begin the dynamic installation, you must unzip the PHPublisher zip file somewhere onto your computer, then upload the contents where you wish to install the system. Once this is complete we can begin the Dynamic Installation. 
+
+--I. First Step 
+
+To begin the Dynamic Installation you need to point your browser to the index.php file where PHPublisher is going to be installed at. You should see a screen that basically says "Either you deleted you config_info.php file, or you have yet to install PHPublisher" Click the link provided to begin the process. The first step will be to enter the URL that PHPublisher will be installed at, if it is a location other than the ROOT Folder, enter the URL and the directory WITHOUT the trailing slash. Then hit "Continue to Step 2!" 
+
+--II. Language 
+
+The next step is to choose a language, currently in v1.0a there is only one language pack, and its "English", so you can just hit "Continue to Step 3!" to continue onto the next step here. 
+
+--III. MySQL Information 
+
+In this step you are required to enter your mysql database information. Host, username, 
+password, and database name. You may also enter a prefix of your choice for the tables; 
+however this is not necessary, the default is "php_" and you may keep this if you like. 
+After everything is completely filled in hit "Continue to Step 4!" to move on. 
+
+NOTE: If left empty, the Prefix field will revert to "php_". 
+
+--IV. Admin Account 
+
+Here you will be creating the ROOT ADMIN account, pretty simple, fill out the form and hit "Register root admin account!" to continue. If you run into any errors, such as "Illegal username", "Illegal E-mail", "Illegal homepage" etcetera, make the corrections and resubmit to continue. 
+
+Upon a successful form submission you should receive a message that says you successfully created the root admin account. Click the link at the bottom to continue to Step 5. 
+
+--V. Ready? 
+
+All this is a page informing you that you are one step away from installing PHPublisher. Click the link below the message to install PHPublisher. 
+
+--VI. Let’s do this! 
+
+Ready? Let’s do this! You've made it through every step successfully and you've made it to the final step, and PHPublisher is finally going to create the necessary files, tables, and rows to operate. On this page you will get to see the installation process. From creating the config_info.php file, to the database tables and rows, every process is executed and results displayed. If everything went OK, at the bottom of the page you should see a message saying something along the lines of: 
+
+"PHPublisher has been successfully installed!" 
+
+As the message states DELETE THE INSTALL DIRECTORY! If you do not, users may come along, and possibly guess your information and run the script. If the installation script is ran when the system is already installed, or if Step 6 (Lets do this! a.k.a. Step6.php) is refreshed, all of the necessary tables, rows, are dropped from the database and errors are reported back, and sql code to manually install the tables and rows are returned. 
+
+In some cases the Dynamic installation will stop completely and display a create file error. If this happens simply copy the code inside the text box provided, paste it into your favorite text-editor save it as "config_info.php" and upload the file to the directory where PHPublisher is being installed, then go back to the Dynamic installation script and click the link below the textbox, PHPublisher will then search for the config_info.php file, if it is found it will skip creation and go straight into creating the tables and rows. 
+
+In the event the Dynamic Installation is completely unsuccessful (failed to create tables and rows), specific information will be displayed pertaining to each step refused. The dynamic install script will help you manually install the system. For more information on Manual Installation read the Manual installation section of this document. 
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!! 
+DELETE THE INSTALL DIRECTORY 
+CHMOD THE /log DIRECTORY TO 0777 
+CHMOD THE /log/security_log.php TO 0777 
+YOU MUST DO THESE THINGS BEFORE CONTINUING ON OR PHPUBLISHER 
+MAY NOT OPERATE PROPERLY
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+
+
+II. Manual Installation 
+
+Below is a list of what will be covered in this section: 
+
+--I. The config_info_MANUAL_INSTALL.php file 
+--II. The Manual_Install.sql file 
+--III. settings_row.sql 
+--IV. admin_account.sql 
+--V. Executing the SQL using phpMyAdmin 
+--VI. PHPublisher has been successfully installed! 
+
+Introduction 
+
+In this section we will cover the steps on how to manually install PHPublisher. This is not recommended unless you are an advanced user and know what you are doing, or the Dynamic Installation was a failure and the instructions it gave you just didn't make sense. Either way, you’re going to learn how to manually install PHPublisher. 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!ATTENTION!!!!!!!!!!!!!!!!!!!!!!!!!! 
+DELETE THE INSTALL DIRECTORY 
+CHMOD THE /log DIRECTORY TO 0777 
+CHMOD THE /log/security_log.php TO 0777 
+YOU MUST DO THESE THINGS BEFORE CONTINUING ON OR PHPUBLISHER 
+MAY NOT OPERATE PROPERLY
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+
+--I. The config_info_MANUAL_INSTALL.php file 
+
+First open config_info_MANUAL_INSTALL.phpp using your favorite text-editor. 
+
+This file holds the database information PHPublisher needs to connect to your database it is being installed on. There are 4 variables used to connect. 
+
+** $dbhost :: Host of your machine (usually localhost) 
+** $dbname :: name of your MySQL Database 
+** $dbuser :: Username to your MySQL Database 
+** $dbpasswd :: Password to your MySQL Database 
+** $pre :: Prefix to your database Tables (default: "php_") 
+
+Fill in each variable with the proper information corresponding to your database. 
+
+NOTE: The variable $pre is preset as "php_" and can not be changed when installing PHPublisher manually. 
+
+After you have set each variable to the correct information save the file, then rename it to "config_info.php", then upload to the directory you are installing PHPublisher at. After that you are going to need to execute some sql to get the correct tables and rows. 
+
+--II. The Manual_Install.sql file 
+
+This file contains all the sql needed to create the tables and most of the rows needed to get PHPublisher up and running. We will be using this file in Step V (5). 
+
+--III. settings_row.sql 
+
+Open settigs_row.sql using your favorite text-editor. You should see some sql syntax and some text in CAPITIAL LETTERS. 
+
+Find the text below: 
+
+'SITE URL GOES HERE REMEMBER NO TRAILING SLASH' 
+
+Notice the single quotations, you want to keep those, if you accidentally delete them the sql will NOT execute. In the event you accidentally do, add a single quotation to the side that needs one, and try again. 
+
+Replace: SITE URL GOES HERE REMEMBER NO TRAILING SLASH with the URL to the location where PHPublisher is being installed, and remember, no trailing slash. Next find the text: 
+
+'START DATE GOES HERE' 
+
+again, notice the single quotations, you want to keep those, if you accidentally delete them the sql will NOT execute. In the event you accidentally do, add a single quotation to the side that needs one, and try again. 
+
+Replace: START DATE GOES HERE :with today’s date, or the date you are installing PHPublisher. 
+
+Next, make sure you didn't accidentally overwrite a single quotation, if you did just insert one where needed (there should be one at each end of the value you entered ex: 'http://phpublisher.net'). 
+
+Save the file and go onto the next step. 
+
+--IV. admin_account.sql 
+
+Open admin_account.sql using your favorite text-editor. You should see some sql syntax and some text in CAPITAL LETTERS. 
+
+Find the text below: 
+
+'YOUR USERNAME GOES HERE' 
+
+Notice the single quotations, you want to keep those, if you accidentally delete them the sql will NOT execute. In the event you accidentally do, add a single quotation to the side that needs one, and try again. 
+
+Replace: YOUR USERNAME GOES HERE :with the username you would like. Next find the text: 
+
+'YOUR EMAIL GOES HERE' 
+
+Replace: YOUR EMAIL GOES HERE :with the email you wish to use. Next find the text: 
+
+'DATE YOU REGISTERED GOES HERE' 
+
+Replace: DATE YOU REGISTERED GOES HERE :with today’s date or the date you are installing PHPublisher. Next find the text: 
+
+'YOUR SECURITY QUESTION GOES HERE' 
+
+Replace: YOUR SECURITY QUESTION GOES HERE :with a question only you know the answer to. This will be used for if you forget your password, and need to recover it. Next find the text: 
+
+'YOUR SECURITY ANSWER GOES HERE' 
+
+Replace: YOUR SECURITY ANSWER GOES HERE :with the answer to your security question. 
+
+
+Next, make sure you didn't accidentally overwrite a single quotation, if you did just insert one where needed (there should be one at each end of the value you entered ex: 'http://phpublisher.net'). 
+
+Save the file. And go onto the next step. 
+
+--V. Executing the SQL using phpMyAdmin 
+
+Next we are going to be using phpMyAdmin to execute the sql needed to run PHPublisher. If you do not know where your phpMyAdmin is, you will need to consult with your host. If you do not have phpMyAdmin installed please visit http://phpmyadmin.net to download, and then install. 
+
+Open phpMyAdmin. Next select the database you are installing PHPublisher on. Now click "SQL". Click the "browse" button, and locate the sql file "Manual_Install.sql", select it. Then hit the "Go" button below it. Upon successful execution you should get a "Your SQL-query has been executed successfully" message. While at the same page, click the "browse" button, and locate the sql file "settings_row.sql", select it. Then hit the "Go" button below it. Upon successful execution you should get an "Inserted rows: 1" message. It should also show the query you just executed. 
+
+Lastly while at the same page click the "browse" button, and locate the sql file "admin_account.sql", select it. Then hit the "Go" button below it. Upon successful execution you should get an "Inserted rows: 1" message. It should also show the query you just executed. 
+
+
+--VI. PHPublisher has been successfully installed! 
+
+Give yourself a pat on the back, because you have just Manually Installed PHPublisher! You may now begin using your new Dynamic Content Management System :-) 
+
+Login Information: 
+
+Username: The username you choose 
+Password: admin 
+
+
+
+
+III. Default Settings 
+
+Below is a list of what will be covered in this section: 
+
+--I. Site URL 
+--II. Site Launch 
+--III. Site Title 
+--IV. Site Slogan 
+--V. Site Description 
+--VI. Site Keywords 
+--VII. Admin Email 
+--VIII. Maximum characters to be used in signatures 
+--IX. Enable Secure Login? 
+--XI. Enable detailed logging? 
+--XII. Allow members to change the site theme? 
+--XIII. Enable Gzip? 
+--XIV. Allow Guest to Post? 
+--XV. Enable Emoticons? 
+--XVI. Enable Bbcode? 
+--XVII. Default Theme 
+--XVIII. Default Language 
+--XIX. Enable front page content? 
+--XX. Front page content 
+--XXI. Censor Words? 
+--XXII. Number of articles to appear on the front page 
+--XXIII. Number of articles to appear on each old article page 
+--XXIV. Number of polls to list to the public 
+--XXV. Cookie Path 
+--XXVI. Cookie Domain 
+--XXVII. Footers 
+--XXVIII. Enable Powered By images 
+--XXIX. Enable Suspect Filter? 
+
+Introduction 
+
+There are a lot of different servers, with different settings from another out there. PHPublisher's default settings where set up with this solely in mind. Below are the listings and default settings for variables in PHPublisher. That can be changed via the Site Management Category under 'Settings'. 
+
+--I. Site URL 
+
+MySQL column name: base_url 
+
+Variable name: $base_url 
+
+Description: This is the URL you entered upon installation. 
+
+Default value: What you entered upon installation. 
+
+--II. Site Launch 
+
+MySQL column name: start_date 
+
+Variable Name: none 
+
+Description: Sites launch date. 
+
+Default value: Depends on installation type. (Dynamic: Date install was ran) (Manual: NULL) 
+
+--III. Site Title 
+
+MySQL column name: site_title 
+
+Variable Name: $Site_Title 
+
+Description: Websites Title & Browser Head Title. 
+
+Default Value: Welcome to PHPublisher 
+
+--IV. Site Slogan 
+
+MySQL column name: site_slogan 
+
+Variable Name: $Site_Slogan 
+
+Description: Websites Slogan & Browser Head Title (next to 'Site Title') 
+
+Default Value: My site, I own it! Not you! 
+
+--V. Site Description 
+
+MySQL column name: site_description 
+
+Variable Name: $Site_Description 
+
+Description: Website description, used to locate pages on search engines. 
+
+Default Value: description 
+
+--VI. Site Keywords 
+
+MySQL column name: site_keywords 
+
+Variable Name: $Site_Keywords 
+
+Description: Website keywords, used to locate page on search engines. 
+
+Default Value: keywords 
+
+--VII. Admin Email 
+
+MySQL column name: admin_email 
+
+Variable Name: $Admin_Email 
+
+Description: E-Mail the admin can be reached at. 
+
+Note(s): The "Contact Us" module that comes with the system uses this variable so it’s a good idea to make this an email the site admin can be contacted at. 
+
+Default Value: webmaster@mysite.com 
+
+--VIII. Maximum characters to be used in signatures 
+
+MySQL column name: site_max_sig 
+
+Variable Name: $Site_Max_Sig_Length 
+
+Description: Maximum amount of characters to be allowed in a signature. Wither it be code or letters and numbers. 
+
+Note(s): Make sure to consider what the users can and can not enter into their signatures when considering lengths. The system counts 1 space as 1 character! 
+
+We Recommend: 500 
+
+Default Value: 500 
+
+--IX. Enable Secure Login? 
+
+MySQL column name: secure_login 
+
+Variable Name: $Security_Login 
+
+Description: If turned ON, a user must enter a random 6 digit security code, along with their regular information in order to login. This helps prevent brute force hacks. 
+
+Note(s): GD must be enabled on the server in order to use this feature. This is a good setting to have turned on; if possible, it helps make the site a little more secure, otherwise brute force attacks are much more easily accomplished. 
+
+We Recommend: ON (If possible) 
+
+Default Value: OFF 
+
+--X. Enable detailed logging? 
+
+MySQL column name: site_logging 
+
+Variable Name: $Site_Logging 
+
+Description: If turned ON the system will log every user click, in full detail. 
+
+Note(s): When turning on for the first time, the system will try to automatically CHMOD the /log/ directory to 777; if it fails an error will appear saying "You must CHMOD the /log/ directory to 777!" You will then have to manually go to your ftp application and CHMOD it to 777. This varies from different ftp programs, but in most cases you simply right click the file and there should be an option known as "Properties or Chmod". The only reason this is set as a default of OFF, is because it came up in a discussion that users may not want to start of logging right away, or logging at all, because if the log files are not kept in check and pruned on a regular basis this can cause massive physical memory loss over time. Also, if you wish you may (AT YOUR OWN RISK), disable this feature for site speed. 
+
+We Recommend: Highly Recommended ON (Also Recommended that you save the log files to a location of your choice and prune them from the server regularly.) 
+
+Default Value: OFF 
+
+--XI. Allow members to change the site theme? 
+
+MySQL column name: site_chgtheme 
+
+Variable Name: $Site_Chg_Theme 
+
+Description: If turned on, users may toggle the sites style 
+
+Default Value: ON 
+
+--XI. Enable Gzip? 
+
+MySQL column name: site_gzip 
+
+Variable Name: $Site_Gzip 
+
+Description: When turned on, if possible, it helps generate pages faster using gzip compression. 
+
+Note(s): If the server either has it disabled, or turned on by default already you can not turn Gzip on as it can result in site load malfunctions, or other various page generation problems. 
+
+We Recommend: On (If Possible) 
+
+Default Value: OFF 
+
+--XII. Allow Guest to Post? 
+
+MySQL column name: guest_allowed 
+
+Variable Name: $Guest_Allowed 
+
+Description: If turned on guests are allowed to post comments, and take part in other various activities. 
+
+We Recommend: OFF 
+
+Default Value: OFF 
+
+--XIII. Enable Emoticons? 
+
+MySQL column name: emoticon_on 
+
+Variable Name: $Emoticon_On 
+
+Description: When turned on users may use code to display festive emotional images 
+
+Default Value: ON 
+
+--XIV. Enable Bbcode? 
+
+MySQL column name: bbcode_on 
+
+Variable Name: $BBcode_on 
+
+Description: When turned on users may use a specified code to generate common html tags 
+
+Default Value: ON 
+
+--XV. Default Theme 
+
+MySQL column name: site_theme 
+
+Variable Name: $Site_Theme 
+
+Description: The websites default theme which is viewable by new visitors, guests, and members not logged in. 
+
+Default Value: PHPublisher 
+
+--XVI. Default Language 
+
+MySQL column name: site_lang 
+
+Variable Name: $Site_Lang 
+
+Description: Default site language to be viewed by new visitors, guests, and members not logged in 
+
+Default Value: English 
+
+--XVII. Enable front page content? 
+
+MySQL column name: site_frontpage 
+
+Variable Name: $Site_Frontpage 
+
+Description: If turned ON it will display the Front page content above the news on the front page, it is viewable by everyone. 
+
+Default Value: ON 
+
+--XVIII. Front page content 
+
+MySQL column name: site_frontpage_content 
+
+Variable Name: $Site_Frontpage_Content 
+
+Description: The content that will be displayed on the front page if $Front_Pagecontent is turned ON Default Value: PHPublisher has been successfully installed! 
+
+--XIX. Censor Words? 
+
+MySQL column name: censor_words 
+
+Variable Name: $Censor_Words 
+
+Description: When turned on it filters out any language specified as being foul and replaces it with something friendlier 
+
+Default Value: ON 
+
+--XX. Number of articles to appear on the front page 
+
+MySQL column name: show_new_news 
+
+Variable Name: $Show_New_News 
+
+Description: Amount of articles to be displayed on the front page. 
+
+Default Value: 5 
+
+--XXI. Number of articles to appear on each old article page 
+
+MySQL column name: show_old_news 
+
+Variable Name: $Show_Old_News 
+
+Description: Number of articles to be displayed (per page) on the "Old Articles" page 
+
+Default Value: 10 
+
+--XXII. Number of polls to list to the public 
+
+MySQL column name: show_polls 
+
+Variable Name: $Show_Polls 
+
+Description: Number of polls to be displayed to both the administration through the admin panel, and the users on the main poll page. 
+
+Default Value: 50 
+
+--XXV. Cookie Path 
+
+MySQL column name: site_cookie_path 
+
+Variable name: $Cookie_Path 
+
+Description: The directory which the cookies that are being set effect. 
+
+Default Value: "/" 
+
+--XXVI. Cookie Domain 
+
+MySQL column name: site_cookie_domain 
+
+Variable name: $Cookie_Domain 
+
+Description: The domain that the cookies effect 
+
+We Recommend: Most domains will require only two (2) dots in the domain name, ex. www.mydomain.com, subdomain.mydomain.com, so we recommend .mydomain.com, however for the domains with two (2) dots in their extension such as .co.uk, etc should have three (3) dots in the Cookie Domain field. If left empty the cookie will only affect the domain it was accessed on. Ex. if you access the domain via http://mydomain.com, the cookie will not work via http://www.mydomain.com. 
+
+Default Value: " " 
+
+--XXVII. Footers 
+
+MySQL column names: footer1, footer2 
+
+Variable Names: $Footer1, $Footer2 
+
+Description: Footer messages displayed at the bottom of each page. 
+
+$Footer1: © 2005 by me. All Rights Reserved. mysite.com is © copyright by me. 
+
+$Footer2: All logos and trademarks in this site are property of their respective owners. The comments are property of their posters, all the rest © 2005 by me. 
+
+--XXVIII. Enable Powered By images 
+
+MySQL column name: poweredby 
+
+Variable Name: $Poweredby 
+
+Description: Displays the images that notify users what powers your server and code 
+
+Default Value: ON 
+
+--XXIX. Enable Suspect Filter? 
+
+MySQL column name: site_suspect_filter 
+
+Variable Name: $Enable_Suspect_Filterr 
+
+Description: When turned on it monitors all incoming data and verifies its integrity 
+
+Note(s): When turned on the system runs a tad bit slower since it has to review ALL incoming data, however if you wish you may (AT YOUR OWN RISK), disable this feature for site speed. 
+
+We Recommend: It is HIGHLY RECOMMENDED you keep this feature enabled 
+
+Default Value: ON 
+
+
+IV. Backend Overview 
+
+Below is a list of what is going to be covered in this section. 
+
++I. Backend.php 
+--I. Lines 1-50 
+--II. MySQL Class 
+--III. Lines 150 - 195 
+--IV. User Class 
+--V. Table Class 
+--VI. Refreshing Site Content 
+--VII. GrabBlocks Function 
+--VIII. Banned Users 
++II. Required Files 
+--I. suspect_filter.php 
+--II. functions.php 
+--III. censors.php 
+--IV. emoticons.php 
+--V. bbcode.php 
+--VI. comments.php 
+--VII. pagecontent.php 
+--VIII. log.php 
+--IX.counter.php 
+--X. headers.php 
+--XI. footers.php 
+
+
+Introduction 
+
+I am sure with the use of the system you are thinking to yourself "I wonder what makes this thing work?" Well, hopefully the information below, you can get a better understanding. 
+
++I. Backend.php 
+
+We will start by looking at the backend.php file 
+
+--I. Lines 1-50 
+
+In the first 50 lines of the code all there really is, are notes on PHPublisher’s copyright, and license release information. There are also a few bits of code that will help calculate the page generation speed, the current directory the script is running in, the date and time, and some other little things that I won't get into. 
+
+--II. MySQL Class 
+
+The MySQL class was designed and created to make sql execution quick, easy, and to calculate the affected rows, and amount of queries used per page. There are 9 functions inside the MySQL class they are: 
+
+SQL_Error: Displays the error mysql returned if any 
+MySQL: This is the constructor that will set the appointed variables we wish to use within the class. 
+Connection: A function that Connects and Disconnects from MySQL 
+Query: Runs basic sql queries, and calculates affected rows (+1 query on every use) 
+Fetch: Runs a basic sql query, and then fetches the information associated with it and stores it in 
+an array. (+1 query on every use) 
+Rows: Runs a basic sql query, and then counts the number of rows associated with the sql. (+1 query on every use) 
+Results: Runs a basic sql query and then returns true or false if there were any rows associated with the sql 
+Count_Queries: Displays the total number of queries executed on the page. 
+Count_Rows: Displays the total affected rows on the page. 
+
+--III. Lines 150 - 195 
+
+Between lines 150 and 195, you will see our first sessions. It is the site settings, using the mysql class to fetch the information we need about the website from the database. It then puts the info into an array and saves it to the session 'Settings', and then variables are used to divide the array up into single pieces. Such as Site Title, Site Slogan, the admin email, with or with out certain settings are turned on or off, etcetera. The variable $version is also within these lines and it holds the version value of the system. Near line 190 is the Gzip setting, if it’s turned on this helps the site load faster using gzip technology. 
+
+--IV. User Class 
+
+The user class was designed for grabbing the information about the user currently browsing the site. There are 12 functions in the user class. They are: 
+
+user: The constructor that will set the appointed variables we wish to use within the class. 
+verify: Verifies wither or not the user is a guest or a member returning with cookie information. 
+extract: Returns requested information using the session set in the verify function 
+name: Returns username 
+id: Returns user id 
+lvl: Returns user access level 
+group: Returns user group id 
+theme: Returns user theme and generates the sites overall layout 
+userip: Returns the user IP 
+updateip: Updates the user ip in the database 
+language: Returns the users preferred language 
+logout: logs the user out when requested 
+
+--V. Table Class 
+
+A simple class that returns table open/close functions that shape the content layout on each page. 
+
+--VI. Refreshing Site Content 
+
+A unique feature to PHPublisher is the ability to refresh the site dynamically. Since the site is almost completely held within sessions. A lot of the data isn’t always up to date, so the best way to get the most current data is to "refresh the content". This is accomplished by clicking the "Refresh Content" link at the very bottom of the page, upon execution the script unsets every session and then returns to the site, the site then resets each session with the most current data, on each initial page visit, using a new session, it may be slightly slow, but after the first visit everything loads faster. A new session is also gained by closing the web browser, and re access the website, or being idle for 20 minutes (or whatever the servers default idle time limit is). 
+
+--VII. Grab Blocks Function 
+
+This function searches the database for all the blocks registered, which side they are on, and then put them into sessions, and then displays them. This results in only 1 query for multiple blocks, instead of 1 query per block. A note to the administrator is that when shuffling around the blocks, adding, removing, and etcetera. The results will not show to you until you refresh the website as stated above. 
+
+--VIII. Banned Users 
+
+Here we session sql queries then run them against both the user ip and username, if any matches are found the user gets a display that informs them they have been banned and the reason why. The script at this points stops execution. 
+
++II. Required Files 
+
+The last bit of the backend code involves separate files being included. 
+
+--I. suspect_filter.php 
+
+Security system that identifies specific keywords as being 'suspicious', and halts the script upon finding one to protect the website. 
+
+--II. functions.php 
+
+A collection of useful functions used all over the website. 
+
+--III. censors.php 
+
+Here the words that have been defined as being 'foul' or 'unacceptable', will be replaced, by whatever was specified as a replacement when censoring them. 
+
+--IV. emoticons.php 
+
+In this script bits of code such as :-), :-(, :-D, etc are replaced with festive emotional icons. 
+
+--V. bbcode.php 
+
+In this script bits of modified code are generated, searched for matches, and then replaced with their corresponding html code. 
+
+--VI. comments.php 
+
+This script contains a function used where ever comments are allowed. 
+
+--VII. pagecontent.php 
+
+This script grabs the module requested by the user. If it does not exist it returns an error. 
+
+--VIII. log.php 
+
+If logging is enabled this script logs every user click in full detail. When necessary it also creates the log files needed. 
+
+--IX. counter.php 
+
+This script counts each page view. It finds out what browser and operating system the user is running and adds +1 to the proper row in the database. 
+
+--X. headers.php 
+
+Contains the html headers, doctypes, meta information, and css file to be displayed at the top of every page. 
+
+--XI. footes.php 
+
+Contains the page footers to be displayed at the bottom of every page. 
+
+
+
+
+V. Admin Panel Overview 
+
+Below is list of everything that will be covered in this section. 
+
++I. User Management 
+--I. Modify User 
+--II. User Groups 
+--III. Banned 
++II. Article Management 
+--I. Articles 
+--II. Topics 
++III. Feature Management 
+--I. Smilies 
+--II. Censors 
++IV. Content Management 
+--I. Polls 
+--II. Blocks 
+--III. Content 
+--IV. Modules 
+--V. Downloads 
+--VI. Web Links 
++V. Site Management 
+--I. Settings 
+--II. Logging 
++VI. Other Management 
++VII. Hot Links 
+--I. Request WL's 
+--II. Request DL's 
+--III. Post Article 
+--IV. Start Poll 
+--V. Create Blocks 
+
+Introduction 
+
+Since you are new to the system you are going to need a little guidance on how to what does what in the administration panel. 
+
++I. User Management 
+--I. Modify User 
+
+In this section you can select the user you wish to modify and change almost anything. 
+
+--II. User Groups 
+
+Create/Modify/Delete user groups here. 
+
+--III. Banned 
+
+Here you can ban users via username or ip address, be sure to include a reason :-) 
+
++II. Article Management 
+--I. Articles 
+
+Create/Edit/Remove articles here. 
+
+--II. Topics 
+
+Create/Edit/Remove article topics here. 
+
++III. Feature Management 
+--I. Smilies 
+
+Add/Remove emoticons here. 
+
+--II. Censors 
+
+Censor/Uncensor words here. 
+
++IV. Content Management 
+--I. Polls 
+
+Create/Modify/Remove polls here. 
+
+--II. Blocks 
+
+Create/Modify/Remove blocks here. 
+
+--III. Content 
+
+Create/Modify/Remove content here. 
+
+--IV. Modules 
+
+Install/Uninstall/set access levels for modules here. 
+
+--V. Downloads 
+
+Add/Edit/Remove Downloads here. 
+
+--VI. Web Links 
+
+Add/Edit/Remove web links here. 
+
++V. Site Management 
+--I. Settings 
+
+Overall site settings such as Site Title, Site Slogan, Footer Messages, etcetera are modified and saved here. 
+
+--II. Logging 
+
+If enabled, you can select the log file you wish to view. They are outputted in xml format. 
+
++VI. Other Management 
+
+If custom administrative functions are installed, they will appear here. 
+
++VII. Hot Links 
+
+Commonly used functions are placed here 
+
+--I. Request WL's 
+
+The number of Web Links awaiting approval are placed here, you can click the link to browse straight to the requested Web Links manager, where you can either approve, or disapprove and delete them. 
+
+--II. Request DL's 
+
+The number of Downloads awaiting approval are placed here, you can click the link to browse straight to the requested Downloads manager, where you can either approve, or disapprove and delete them. 
+
+--III. Post Article 
+
+If you want to quickly post an article click this link, it will take you right to the article publishing page. 
+
+--IV. Start Poll 
+
+If you want to quickly start a new Poll, click this link, it will take you right to the Poll creation page. 
+
+--V. Create Blocks 
+
+If you want to quickly create a new block, click this link, it will take you right to the block creation page. 
+
+
+
+
+VI. Special thanks goes to... 
+
+PHPublisher was anything but completed merely by one person, it is a compilation of many ideas, different styles, patches, fixes, installments, all poured into one project, known as PHPublisher. I can not begin to thank everyone who has helped me on my way to finishing this huge project, but I will try. Special Thanks goes to: 
+
+22367rh: Thank you for helping set up the foundation of the Profile module. 
+
+Hyprkookeez: Your graphics have been an amazing addition to the system! THANK YOU!! 
+
+Asim: Thanks for making me aware of all the issues PHPublisher had originally, and for making me aware I was using the get method on almost every form! 
+
+Dev: Thanks for testing and judging stuff for me when I asked, and for your support. 
+
+Mitch528: Thanks for testing stuff for me and your support. 
+
+GamerX: Thank you for letting me know when something didn’t seem right. Thank you for testing a few things for me. Thank you for helping me better the RSS Feed. Thank you for your ideas and interesting suggestions. 
+
+Veracon: Thank you for your VERY HARSH criticism, without the front page would not be at 7 queries :-P 
+
+Dabu: Thanks for being an asshole and telling me I'm to honest LOL :-P 
+
+Tee: Thank you for educating me on some security risks to look for. 
+
+MDW: Thank you for your support, and for letting me know using single quotes instead of double quotes helps speed up execution. 
+
+Betta: Thank you for your support, and making me aware of some errors on the site. 
+
+VII. Thank you for choosing PHPublisher 
+
+Thank you once again for choosing PHPublisher, a lot of work has been put into this system, and hopefully it will pay off in the future, your ideas and suggestions are always accepted and considered, so please if you have any ideas, or even mods you want to submit, please contact me at: webmaster@phpublisher.net. Thank you again from me and the PHPublisher Staff! 
+

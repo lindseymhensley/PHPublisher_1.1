@@ -1,0 +1,117 @@
+body {
+        PADDING-RIGHT: 0px;
+        PADDING-LEFT: 0px;
+        MARGIN: 0px;
+        PADDING-BOTTOM: 0px;
+        PADDING-TOP: 0px;
+	font-family: Verdana, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #525252;
+}
+.header {
+	font-family: Verdana, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #ff6600;
+}
+a:link {
+	color: #2C2C60;
+	font-family: Verdana, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none
+}
+a:visited {
+	color: #2C2C60;
+	font-family: Verdana, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none
+}
+a:hover {
+	color: #ff6600;
+	font-family: Verdana, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: underline;
+}
+a:active {
+	color: #2C2C60;
+	font-family: Verdana, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none
+}
+.menusor {
+	font-family: Verdana, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+        margin-top : 4px;
+        padding-bottom : 0px;
+        margin-bottom : 4px;
+        margin-left : 12px;
+        margin-right : 0px;
+	color: #ffffff;
+}
+a.menu:link {
+	color: #ffffff;
+	font-family: Verdana, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: none;
+
+}
+a.menu:visited {
+	color: #ffffff;
+	font-family: Verdana, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+
+}
+a.menu:hover {
+	color: #ffffff;
+	font-family: Verdana, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	font-style: normal;
+	line-height: normal;
+	font-variant: normal;
+	text-transform: none;
+	border: thin none #FFFFFF;
+	text-decoration: underline;
+}
+a.menu:active {
+	color: #ffffff;
+	font-family: Verdana, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+
+}
+td, textarea, input, select {
+	font-family: Verdana, sans-serif;
+	font-size: 10px;
+	color: #666666;
+	font-weight: normal;
+}
+.table
+{
+	border: 1px solid;
+	border-color: #2C2C60;
+}
